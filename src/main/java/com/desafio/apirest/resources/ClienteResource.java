@@ -25,9 +25,14 @@ public class ClienteResource {
 		return clienteRepository.findAll();
 	}
 	
-	@GetMapping("/cliente/{id}")
+	@GetMapping("/codigo/{id}")
 	public Cliente listaClienteId(@PathVariable(value="id") long id){
 		return clienteRepository.findById(id);
+	}
+	
+	@GetMapping("/nome/{nome}")
+	public Cliente listaClienteId(@PathVariable(value="nome") String nome){
+		return clienteRepository.findByNome(nome);
 	}
 	
 	@PostMapping("/cliente")

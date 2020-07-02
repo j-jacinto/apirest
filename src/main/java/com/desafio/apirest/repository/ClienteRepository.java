@@ -7,5 +7,6 @@ import com.desafio.apirest.models.Cliente;
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 	
 	Cliente findById(long id);
+	Cliente findByNome(String nome);
 
 }
