@@ -16,7 +16,7 @@ public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1l;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
 	private String nome;
@@ -27,7 +27,7 @@ public class Cliente implements Serializable {
 	
 	private int idade;
 	
-	private Cidade cidadeMora;
+	private int cidadeMora;
 
 	public long getId() {
 		return id;
@@ -69,11 +69,11 @@ public class Cliente implements Serializable {
 		this.idade = idade;
 	}
 
-	public Cidade getCidadeMora() {
+	public int getCidadeMora() {
 		return cidadeMora;
 	}
 
-	public void setCidadeMora(Cidade cidadeMora) {
+	public void setCidadeMora(int cidadeMora) {
 		this.cidadeMora = cidadeMora;
 	}
 	
