@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,12 +22,12 @@ public class ClienteResource {
 	@Autowired
 	ClienteRepository clienteRepository;
 	
-	@GetMapping("/clientes")
+	@GetMapping("/lista")
 	public List<Cliente> listaClientes(){
 		return clienteRepository.findAll();
 	}
 	
-	@GetMapping("/codigo/{id}")
+	@GetMapping("/id/{id}")
 	public Cliente listaClienteId(@PathVariable(value="id") long id){
 		return clienteRepository.findById(id);
 	}
@@ -48,9 +49,15 @@ public class ClienteResource {
 		
 	}
 	
-	@DeleteMapping("/cliente/{id}")
+	@DeleteMapping("/id/{id}")
 	public void deletaCliente(@PathVariable(value="id") long id){
 		clienteRepository.deleteById(id);
+		
+	}
+	
+	@PutMapping("/cliente")
+	public Cliente alteraCliente(@RequestBody Cliente cliente) {
+		return clienteRepository.save(cliente);
 		
 	}
 	
