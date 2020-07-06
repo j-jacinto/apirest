@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name="TB_CIDADE")
@@ -17,8 +16,7 @@ public class Cidade implements Serializable {
 	private static final long serialVersionUID = 1l;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@JsonProperty(value = "id", access = JsonProperty.Access.READ_ONLY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
 	private String nome;
