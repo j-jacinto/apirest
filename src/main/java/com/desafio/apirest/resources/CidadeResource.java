@@ -26,25 +26,25 @@ public class CidadeResource {
 	@Autowired
 	CidadeRepository cidadeRepository;
 	
-	@GetMapping("/cidade/lista")
+	@GetMapping("/cidades/lista")
 	@ApiOperation(value="Retorna uma Lista de Cidades")
 	public List<Cidade> listaCidades(){
 		return cidadeRepository.findAll();
 	}
 	
-	@GetMapping("/cidade/nome{nome}")
+	@GetMapping("/cidades/nome{nome}")
 	@ApiOperation(value="Retorna uma cidade a partir do nome da cidade")
 	public Cidade buscaCidadeNome(@PathVariable(value="nome") String nome){
 		return cidadeRepository.findByNome(nome);
 	}
 	
-	@GetMapping("/cidade/estado{estado}")
+	@GetMapping("/cidades/estado{estado}")
 	@ApiOperation(value="Retorna um estado a partir do nome do estado")
-	public Cidade buscaCidadeEstado(@PathVariable(value="estado") String estado){
-		return cidadeRepository.findByEstado(estado);
+	public List<Cidade> listaCidadesPorEstado(@PathVariable(value="estado") String estado){
+		return cidadeRepository.findAllByEstado(estado);
 	}
 	
-	@PostMapping("/cidade")
+	@PostMapping("/cidades")
 	@ApiOperation(value="Cadastra uma cidade")
 	public Cidade salvaCidade(@RequestBody Cidade cidade) {
 		return cidadeRepository.save(cidade);

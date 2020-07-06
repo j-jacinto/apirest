@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name="TB_CLIENTE")
 public class Cliente implements Serializable {
@@ -17,17 +19,19 @@ public class Cliente implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@JsonProperty(value = "id", access = JsonProperty.Access.READ_ONLY)
 	private long id;
+	
 	
 	private String nome;
 	
 	private String sexo;
 	
-	private Date dataNascimento; 
+	private Date data_nascimento; 
 	
 	private int idade;
 	
-	private int cidadeMora;
+	private int cidade_mora;
 
 	public long getId() {
 		return id;
@@ -53,12 +57,12 @@ public class Cliente implements Serializable {
 		this.sexo = sexo;
 	}
 
-	public Date getDataNascimento() {
-		return dataNascimento;
+	public Date getData_nascimento() {
+		return data_nascimento;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setData_nascimento(Date data_nascimento) {
+		this.data_nascimento = data_nascimento;
 	}
 
 	public int getIdade() {
@@ -69,14 +73,15 @@ public class Cliente implements Serializable {
 		this.idade = idade;
 	}
 
-	public int getCidadeMora() {
-		return cidadeMora;
+	public int getCidade_mora() {
+		return cidade_mora;
 	}
 
-	public void setCidadeMora(int cidadeMora) {
-		this.cidadeMora = cidadeMora;
+	public void setCidade_mora(int cidade_mora) {
+		this.cidade_mora = cidade_mora;
 	}
-	
+
+
 	
 	
 	

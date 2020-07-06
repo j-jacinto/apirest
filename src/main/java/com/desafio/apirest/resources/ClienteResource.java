@@ -28,46 +28,46 @@ public class ClienteResource {
 	@Autowired
 	ClienteRepository clienteRepository;
 	
-	@GetMapping("/cliente/lista")
+	@GetMapping("/clientes/lista")
 	@ApiOperation(value="Retorna uma Lista de Clientes")
 	public List<Cliente> listaClientes(){
 		return clienteRepository.findAll();
 	}
 	
-	@GetMapping("/cliente/id{id}")
+	@GetMapping("/clientes/id{id}")
 	@ApiOperation(value="Retorna um Cliente pelo Id")
 	public Cliente buscaClienteId(@PathVariable(value="id") long id){
 		return clienteRepository.findById(id);
 	}
 	
-	@GetMapping("/cliente/nome{nome}")
+	@GetMapping("/clientes/nome{nome}")
 	@ApiOperation(value="Retorna um Cliente pelo nome")
 	public Cliente buscaClienteNome(@PathVariable(value="nome") String nome){
 		return clienteRepository.findByNome(nome);
 	}
 	
-	@PostMapping("/cliente")
+	@PostMapping("/clientes")
 	@ApiOperation(value="Cadastra um Cliente")
 	public Cliente salvaCliente(@RequestBody Cliente cliente) {
 		return clienteRepository.save(cliente);
 		
 	}
 	
-	@DeleteMapping("/cliente")
+	@DeleteMapping("/clientes")
 	@ApiOperation(value="Deleta um Cliente")
 	public void deletaCliente(@RequestBody Cliente cliente) {
 		clienteRepository.delete(cliente);
 		
 	}
 	
-	@DeleteMapping("/cliente/id{id}")
+	@DeleteMapping("/clientes/id{id}")
 	@ApiOperation(value="Deleta um Cliente pelo Id")
 	public void deletaCliente(@PathVariable(value="id") long id){
 		clienteRepository.deleteById(id);
 		
 	}
 	
-	@PutMapping("/cliente")
+	@PutMapping("/clientes")
 	@ApiOperation(value="Altera um Cliente")
 	public Cliente alteraCliente(@RequestBody Cliente cliente) {
 		return clienteRepository.save(cliente);
