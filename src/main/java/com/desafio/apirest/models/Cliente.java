@@ -9,7 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
 @Table(name="TB_CLIENTE")
 public class Cliente implements Serializable {
@@ -31,54 +38,5 @@ public class Cliente implements Serializable {
 	
 	private int cidade_mora;
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-
-	public Date getData_nascimento() {
-		return data_nascimento;
-	}
-
-	public void setData_nascimento(Date data_nascimento) {
-		this.data_nascimento = data_nascimento;
-	}
-
-	public int getIdade() {
-		return idade;
-	}
-
-	public void setIdade(int idade) {
-		this.idade = idade;
-	}
-
-	public int getCidade_mora() {
-		return cidade_mora;
-	}
-
-	public void setCidade_mora(int cidade_mora) {
-		this.cidade_mora = cidade_mora;
-	}
-
-	
 	
 }

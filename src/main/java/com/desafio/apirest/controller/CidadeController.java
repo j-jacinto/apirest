@@ -1,4 +1,4 @@
-package com.desafio.apirest.resources;
+package com.desafio.apirest.controller;
 
 import java.util.List;
 
@@ -21,24 +21,24 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping(value="/desafio")
 @Api(value="API REST Cidades")
 @CrossOrigin(origins="*")
-public class CidadeResource {
+public class CidadeController {
 
 	@Autowired
 	CidadeRepository cidadeRepository;
 	
-	@GetMapping("/cidades/lista")
+	@GetMapping("/cidades")
 	@ApiOperation(value="Retorna uma Lista de Cidades")
 	public List<Cidade> listaCidades(){
 		return cidadeRepository.findAll();
 	}
 	
-	@GetMapping("/cidades/nome{nome}")
+	@GetMapping("/cidades/{nome}")
 	@ApiOperation(value="Retorna uma cidade a partir do nome da cidade")
 	public Cidade buscaCidadeNome(@PathVariable(value="nome") String nome){
 		return cidadeRepository.findByNome(nome);
 	}
 	
-	@GetMapping("/cidades/estado{estado}")
+	@GetMapping("/cidades/{estado}")
 	@ApiOperation(value="Retorna um estado a partir do nome do estado")
 	public List<Cidade> listaCidadesPorEstado(@PathVariable(value="estado") String estado){
 		return cidadeRepository.findAllByEstado(estado);
