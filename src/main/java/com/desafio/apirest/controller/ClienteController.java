@@ -38,7 +38,7 @@ public class ClienteController {
 		return repository.findAll();
 	}
 	
-	@GetMapping("/clientes/{id}")
+	@GetMapping("/clientes/id/{id}")
 	@ApiOperation(value="Retorna um Cliente pelo Id")
 	public ResponseEntity<Cliente> buscaClienteId(@PathVariable(value="id") long id){
 		return repository.findById(id)
@@ -46,7 +46,7 @@ public class ClienteController {
 	        .orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/clientes/{nome}")
+	@GetMapping("/clientes/nome/{nome}")
 	@ApiOperation(value="Retorna um Cliente pelo nome")
 	public ResponseEntity<List<Cliente>> buscaClienteNome(@PathVariable(value="nome") String nome){
 		return repository.findByNome(nome)

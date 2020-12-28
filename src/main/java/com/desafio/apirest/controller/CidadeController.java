@@ -32,13 +32,13 @@ public class CidadeController {
 		return cidadeRepository.findAll();
 	}
 	
-	@GetMapping("/cidades/{nome}")
+	@GetMapping("/cidades/cidade/{nome}")
 	@ApiOperation(value="Retorna uma cidade a partir do nome da cidade")
 	public Cidade buscaCidadeNome(@PathVariable(value="nome") String nome){
 		return cidadeRepository.findByNome(nome);
 	}
 	
-	@GetMapping("/cidades/{estado}")
+	@GetMapping("/cidades/estado/{estado}")
 	@ApiOperation(value="Retorna um estado a partir do nome do estado")
 	public List<Cidade> listaCidadesPorEstado(@PathVariable(value="estado") String estado){
 		return cidadeRepository.findAllByEstado(estado);
